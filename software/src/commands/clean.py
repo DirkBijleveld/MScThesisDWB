@@ -52,7 +52,8 @@ def clean(
         print(f"\tCleaned!")
         if filter_legislative:
             print(
-                f"\tFiltering out legislative votes.\n\tThis can be disabled by using the filter_legislative=False flag."
+                f"\tFiltering out legislative votes.\n\tThis can be disabled by using the "
+                f"filter_legislative=False flag."
             )
             doc = read(find_csv(session, doc_bool=True, clean=True))
             legislative_votes = identify_legislative_votes(doc)

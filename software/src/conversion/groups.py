@@ -10,6 +10,7 @@ def correct_epgs(df: pd.DataFrame) -> pd.DataFrame:
     df["ep_group"].replace(
         {
             "NI": None,
+            "Non-attached Members": None,
         },
         inplace=True,
     )

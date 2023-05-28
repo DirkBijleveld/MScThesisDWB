@@ -1,12 +1,14 @@
 import sys
 
 from software.src.commands import COMMANDS_DICT, arguments_to_dict, register
+from software.src.commands.defection import defection
 from software.src.commands.intermediary import intermediary
 from software.src.commands.clean import clean
 
 # Register commands
 register("intermediary", intermediary)
 register("clean", clean)
+register("defection", defection)
 
 
 def main(args: list[str]) -> None:
