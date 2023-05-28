@@ -10,3 +10,13 @@ iniconfig==2.0.0
 packaging==23.1
 pluggy==1.0.0
 pytest==7.3.1
+patsy=0.5.3
+scipy=1.10.1
+statsmodels==0.14.0
+contourpy=1.0.7
+cycler=0.11.0
+fonttools=4.39.4
+kiwisolver=1.4.4
+matplotlib=3.7.1
+pillow=9.5.0
+pyparsing=3.0.9

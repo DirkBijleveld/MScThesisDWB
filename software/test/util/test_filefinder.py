@@ -37,6 +37,7 @@ def test_deconstruct_name():
         "intermediary": False,
         "clean": False,
         "defection": False,
+        "meps": False,
         "suffix": "xlsx",
     }
     assert deconstruct_name("EP6_Voted docs.xlsx") == {
@@ -45,6 +46,7 @@ def test_deconstruct_name():
         "intermediary": False,
         "clean": False,
         "defection": False,
+        "meps": False,
         "suffix": "xlsx",
     }
     assert deconstruct_name("EP6_RCVs_INTERMEDIARY.xlsx") == {
@@ -53,6 +55,7 @@ def test_deconstruct_name():
         "intermediary": True,
         "clean": False,
         "defection": False,
+        "meps": False,
         "suffix": "xlsx",
     }
     assert deconstruct_name("EP8_Voted docs_INTERMEDIARY.xlsx") == {
@@ -61,6 +64,7 @@ def test_deconstruct_name():
         "intermediary": True,
         "clean": False,
         "defection": False,
+        "meps": False,
         "suffix": "xlsx",
     }
     assert deconstruct_name("EP8_Voted docs_CLEAN.xlsx") == {
@@ -69,6 +73,7 @@ def test_deconstruct_name():
         "intermediary": False,
         "clean": True,
         "defection": False,
+        "meps": False,
         "suffix": "xlsx",
     }
     assert deconstruct_name("EP9_Voted docs_CLEAN.csv") == {
@@ -77,6 +82,7 @@ def test_deconstruct_name():
         "intermediary": False,
         "clean": True,
         "defection": False,
+        "meps": False,
         "suffix": "csv",
     }
     with pytest.raises(ValueError):

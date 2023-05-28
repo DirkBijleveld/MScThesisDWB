@@ -41,7 +41,6 @@ def defection_score(vote_code: int, vote_quantities: tuple[int, int, int]) -> fl
     # If the vote is modal, there is no defection
     if is_modal_vote(vote_code, vote_quantities):
         return 0.0
-
     # Otherwise the defection score is the adj. AI
     return agreement_index(*adj_vote_quantities)
 

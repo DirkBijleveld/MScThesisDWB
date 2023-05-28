@@ -25,6 +25,9 @@ makedirs(MEP_DIR, exist_ok=True)
 VOTE_DIR = DATA_DIR / "votes"
 makedirs(VOTE_DIR, exist_ok=True)
 
+REGRESSION_RESULTS = Path(__file__).parent.parent.parent.parent / "regressionresults"
+makedirs(REGRESSION_RESULTS, exist_ok=True)
+
 
 def refresh_readmes() -> None:
     """Refresh the README files."""

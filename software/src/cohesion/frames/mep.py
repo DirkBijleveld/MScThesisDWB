@@ -63,6 +63,7 @@ def create_mep_row(
 
     return Series(
         [
+            mep_id,
             party,
             group,
             len(party_defection_scores),
@@ -73,6 +74,7 @@ def create_mep_row(
             average_group_cohesion,
         ],
         index=[
+            "mep_id",
             "national_party",
             "ep_group",
             "quantity_votes_party",
@@ -90,6 +92,7 @@ def create_mep_frame(
 ) -> DataFrame:
     mep_list = rcv["mep_id"].dropna().unique().tolist()
     columns = [
+        "mep_id",
         "national_party",
         "ep_group",
         "quantity_votes_party",

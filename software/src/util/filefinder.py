@@ -4,6 +4,7 @@ from software.src.util.pathutil import (
     INTERMEDIARY_DIR,
     EXPORT_DIR,
     DEFECTION_DIR,
+    MEP_DIR,
 )
 
 
@@ -15,6 +16,7 @@ def construct_name(
     intermediary: bool = False,
     clean: bool = False,
     defection: bool = False,
+    meps: bool = False,
 ) -> str:
     """
     Constructs the name of the file for the given session, and the given parameters.
@@ -24,6 +26,7 @@ def construct_name(
     :param intermediary: (bool) Whether to construct an intermediary filename.
     :param clean: (bool) Whether to construct a clean filename.
     :param defection: (bool) Whether to construct a defection filename.
+    :param meps: (bool) Whether to construct a MEP filename.
     :return: (str) The name of the file.
     """
     if intermediary and clean:
@@ -34,6 +37,7 @@ def construct_name(
         + ("_INTERMEDIARY" if intermediary else "")
         + ("_CLEAN" if clean else "")
         + ("_DEFECTION" if defection else "")
+        + ("_MEPS" if meps else "")
         + f".{suffix}"
     )
 
@@ -55,12 +59,14 @@ def deconstruct_name(file: str | Path) -> dict[str, bool | str | int]:
     intermediary = "INTERMEDIARY" in file
     clean = "CLEAN" in file
     defection = "DEFECTION" in file
+    meps = "MEPs" in file
     return {
         "session": session,
         "doc_bool": doc_bool,
         "intermediary": intermediary,
         "clean": clean,
         "defection": defection,
+        "meps": meps,
         "suffix": suffix,
     }
 
@@ -80,22 +86,26 @@ def find_excel(session: int, doc_bool: bool = False) -> Path:
 
 
 def get_base_csv_path(
-    intermediary: bool = False, clean: bool = False, defection: bool = False
+    intermediary: bool = False,
+    clean: bool = False,
+    defection: bool = False,
+    meps: bool = False,
 ) -> Path:
     """
     Returns the base path for the CSV file.
     :param intermediary: (bool) Whether to find the intermediary file.
     :param clean: (bool) Whether to find the clean file.
     :param defection: (bool) Whether to find the defection file.
+    :param meps: (bool) Whether to find the MEPs file.
     :return: (Path) The base path for the CSV file.
     """
     if intermediary and clean:
         raise ValueError("Session csv file cannot be both intermediary and clean.")
-    if not intermediary and not clean and not defection:
+    if not intermediary and not clean and not defection and not meps:
         raise ValueError(
-            "Session csv file must be either intermediary, clean, or defection."
+            "Session csv file must be either intermediary, clean, meps, or defection."
         )
-    if defection and clean or defection and intermediary:
+    if defection and clean or defection and intermediary or defection and meps:
         raise ValueError("Defection csv file cannot also be clean or intermediary.")
     return (
         INTERMEDIARY_DIR
@@ -104,6 +114,8 @@ def get_base_csv_path(
         if clean
         else DEFECTION_DIR
         if defection
+        else MEP_DIR
+        if meps
         else None
     )
 
@@ -114,6 +126,7 @@ def find_csv(
     intermediary: bool = False,
     clean: bool = False,
     defection: bool = False,
+    meps: bool = False,
 ) -> Path:
     """
     Finds the CSV file for the given session.
@@ -124,11 +137,12 @@ def find_csv(
     :param intermediary: (bool) Whether to find the intermediary file.
     :param clean: (bool) Whether to find the clean file.
     :param defection: (bool) Whether to find the defection file.
+    :param meps: (bool) Whether to find the MEPs file.
     :return: (Path) The path to the file.
     """
 
     path = get_base_csv_path(
-        intermediary=intermediary, clean=clean, defection=defection
+        intermediary=intermediary, clean=clean, defection=defection, meps=meps
     ) / (
         construct_name(
             session,
@@ -137,6 +151,7 @@ def find_csv(
             intermediary=intermediary,
             clean=clean,
             defection=defection,
+            meps=meps,
         )
     )
     return path
