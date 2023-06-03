@@ -20,3 +20,6 @@ kiwisolver=1.4.4
 matplotlib=3.7.1
 pillow=9.5.0
 pyparsing=3.0.9
+matplotlib~=3.7.1
+pymc3~=3.11.4
+arviz~=0.15.1

@@ -28,6 +28,12 @@ makedirs(VOTE_DIR, exist_ok=True)
 REGRESSION_RESULTS = Path(__file__).parent.parent.parent.parent / "regressionresults"
 makedirs(REGRESSION_RESULTS, exist_ok=True)
 
+BOXPLOTS = Path(__file__).parent.parent.parent.parent / "boxplots"
+makedirs(BOXPLOTS, exist_ok=True)
+
+CORRELATION = Path(__file__).parent.parent.parent.parent / "correlation"
+makedirs(CORRELATION, exist_ok=True)
+
 
 def refresh_readmes() -> None:
     """Refresh the README files."""

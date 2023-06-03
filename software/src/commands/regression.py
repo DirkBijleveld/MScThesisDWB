@@ -1,12 +1,6 @@
 from datetime import datetime
 
-import numpy as np
-from pandas.core import frame
-from statsmodels.discrete.discrete_model import Logit
-from statsmodels.formula.api import ols, quantreg, logit
-from statsmodels.othermod.betareg import BetaModel
-from statsmodels.regression.linear_model import GLS, WLS
-
+from software.src.regression.quantile import quantile, make_formula
 from software.src.util.filefinder import find_csv
 from software.src.util.pathutil import REGRESSION_RESULTS
 from software.src.util.readutil import read
@@ -29,137 +23,129 @@ def regression(
     defection = read(find_csv(session, meps=True))
     print(f"\tData loaded.\n")
 
-    frame = defection.copy()
-
-    frame.dropna(
-        subset=[
-            "party_defection",
-            "national_party",
-            "party_size",
-            "quantity_votes_party",
-            "incumbent",
-        ],
-        inplace=True,
-    )
-
-    frame["far_right"] = frame["ep_group"].isin(["IDG"])
-    frame["far_right"] = frame["far_right"].replace({True: 1, False: 0})
-
-    frame["country_duration"] /= frame["country_duration"].max()
-
-    frame["party_defection"] = np.sqrt(frame["party_defection"])
-    frame["quantity_votes_party"] /= frame["quantity_votes_party"].max()
-    frame["party_size"] /= frame["party_size"].max()
-
-    frame = frame[frame["party_defection"] > 0.0]
-
-    models = ols(
-        "party_defection ~ "
-        + "far_right + "
-        + "C(country) + "
-        + "incumbent + "
-        + "party_country_ratio + "
-        + "party_size +"
-        + "quantity_votes_party",
-        data=frame,
-    )
-    fit = models.fit()
-    print(fit.summary(), end="\n\n")
-
-    print("hi")
-    print("Saving results...")
-
-
-"""
     if party:
-        print("Running OLS regression on party defection...")
+        print("Running regression on party defection...")
+
+        # Cleaning frame for party defection calculation
+        # A deep copy of defection is used for this.
+
         frame = defection.copy()
         frame.dropna(subset=["party_defection", "national_party"], inplace=True)
-
         frame["far_right"] = frame["ep_group"].isin(["IDG"])
         frame["far_right"] = frame["far_right"].replace({True: 1, False: 0})
 
-        model = ols(
-            "party_defection ~ "
-            + "far_right + "
-            + "C(country) +"
-            + "incumbent + "
-            + "country_duration + "
-            + "party_country_ratio + "
-            + "party_group_ratio",
-            data=frame,
+        # Dropping MEPs with no votes
+        frame = frame[frame["quantity_votes_party"] > 0]
+
+        # Normalizing values
+        frame["party_country_ratio"] /= frame["party_country_ratio"].max()
+        frame["quantity_votes_party"] /= frame["quantity_votes_party"].max()
+
+        # Running regression
+        print("---Running Party Defection Quantile Regression---")
+        formula = make_formula(
+            "party_defection",
+            "party_country_ratio",
+            "far_right",
+            "quantity_votes_party",
+            "incumbent",
+            "C(country)",
         )
 
-        fit = model.fit()
+        fit = quantile(formula, frame)
         print(fit.summary(), end="\n\n")
 
         print("Saving results...")
         with open(
-            REGRESSION_RESULTS / f"REGRESSION_{datetime.now()}_OLS_PARTY.txt", "w+"
+            REGRESSION_RESULTS / f"REGRESSION_{datetime.now()}_QUANTILE_PARTY.txt", "w+"
         ) as file:
             file.write(fit.summary().as_text())
+
         print("\tDone!\n")
 
     if group:
-        print("Running OLS regression on group defection...")
-        frame = defection.copy()
-        frame.dropna(subset=["group_defection", "ep_group"], inplace=True)
+        print("Running regression on group defection...")
 
+        # Cleaning frame for group defection calculation
+        # A deep copy of defection is used for this.
+
+        frame = defection.copy()
+        frame.dropna(
+            subset=["group_defection", "ep_group", "national_party"], inplace=True
+        )
         frame["far_right"] = frame["ep_group"].isin(["IDG"])
         frame["far_right"] = frame["far_right"].replace({True: 1, False: 0})
 
-        model = ols(
-            "group_defection ~ "
-            + "far_right + "
-            + "incumbent + "
-            + "country_duration + "
-            + "quantity_votes_group + "
-            + "party_country_ratio + "
-            + "party_group_ratio",
-            data=frame,
+        # Dropping MEPs with no votes
+        frame = frame[frame["quantity_votes_group"] > 0]
+
+        # Normalizing values
+        frame["quantity_votes_group"] /= frame["quantity_votes_group"].max()
+        frame["party_country_ratio"] /= frame["party_country_ratio"].max()
+
+        # Running regression
+        print("---Running Group Defection Quantile Regression---")
+        formula = make_formula(
+            "group_defection",
+            "party_country_ratio",
+            "far_right",
+            "quantity_votes_group",
+            "incumbent",
+            "C(country)",
         )
 
-        fit = model.fit()
+        fit = quantile(formula, frame)
         print(fit.summary(), end="\n\n")
 
         print("Saving results...")
         with open(
-            REGRESSION_RESULTS / f"REGRESSION_{datetime.now()}_OLS_GROUP.txt", "w+"
+            REGRESSION_RESULTS / f"REGRESSION_{datetime.now()}_QUANTILE_GROUP.txt", "w+"
         ) as file:
             file.write(fit.summary().as_text())
         print("\tDone!\n")
 
     if eurosceptic:
-        print("Running OLS regression on eurosceptic defection...")
-        frame = defection.copy()
-        frame.dropna(subset=["group_defection", "ep_group"], inplace=True)
+        print("Running regression on EPG Defection, including Eurosceptic control...")
 
+        # Cleaning frame for eurosceptic defection calculation
+        # A deep copy of defection is used for this.
+
+        frame = defection.copy()
+        frame.dropna(
+            subset=["group_defection", "national_party", "ep_group"], inplace=True
+        )
         frame["far_right"] = frame["ep_group"].isin(["IDG"])
         frame["far_right"] = frame["far_right"].replace({True: 1, False: 0})
-
         frame["eurosceptic"] = frame["ep_group"].isin(["IDG", "ECR"])
         frame["eurosceptic"] = frame["eurosceptic"].replace({True: 1, False: 0})
 
-        model = ols(
-            "group_defection ~ "
-            + "far_right + "
-            + "eurosceptic +"
-            + "incumbent + "
-            + "country_duration + "
-            + "quantity_votes_party + "
-            + "party_country_ratio + "
-            + "party_group_ratio",
-            data=frame,
+        # Dropping MEPs with no votes
+        frame = frame[frame["quantity_votes_party"] > 0]
+
+        # Normalizing values
+        frame["party_country_ratio"] /= frame["party_country_ratio"].max()
+        frame["quantity_votes_group"] /= frame["quantity_votes_group"].max()
+
+        # Running regression
+        print("---Running Eurosceptic Defection Quantile Regression---")
+        formula = make_formula(
+            "group_defection",
+            "party_country_ratio",
+            "far_right",
+            "eurosceptic",
+            "quantity_votes_group",
+            "incumbent",
+            "C(country)",
         )
 
-        fit = model.fit()
+        fit = quantile(formula, frame)
         print(fit.summary(), end="\n\n")
 
         print("Saving results...")
         with open(
-            REGRESSION_RESULTS / f"REGRESSION_{datetime.now()}_OLS_EUROSCEPTIC.txt",
+            REGRESSION_RESULTS
+            / f"REGRESSION_{datetime.now()}_QUANTILE_EUROSCEPTIC.txt",
             "w+",
         ) as file:
             file.write(fit.summary().as_text())
         print("\tDone!\n")
-"""

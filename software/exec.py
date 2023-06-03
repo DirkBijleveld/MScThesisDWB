@@ -1,7 +1,10 @@
 import sys
 
 from software.src.commands import COMMANDS_DICT, arguments_to_dict, register
+from software.src.commands.boxplot import boxplot
+from software.src.commands.correlation import correlation
 from software.src.commands.defection import defection
+from software.src.commands.full import full
 from software.src.commands.intermediary import intermediary
 from software.src.commands.clean import clean
 from software.src.commands.prep import prep
@@ -13,6 +16,9 @@ register("clean", clean)
 register("defection", defection)
 register("prep", prep)
 register("regression", regression)
+register("boxplot", boxplot)
+register("correlation", correlation)
+register("full", full)
 
 
 def main(args: list[str]) -> None:

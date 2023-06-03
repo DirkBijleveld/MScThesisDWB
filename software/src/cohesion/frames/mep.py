@@ -15,6 +15,9 @@ def create_mep_row(
     party_defection_scores = []
     group_defection_scores = []
 
+    party_sizes = []
+    group_sizes = []
+
     party_cohesion_scores = []
     group_cohesion_scores = []
 
@@ -28,6 +31,7 @@ def create_mep_row(
         else:
             party_defection = np_matrix.loc[vote_id, party][1][vote - 1]
             party_cohesion = np_matrix.loc[vote_id, party][2]
+            party_sizes.append(np_matrix.loc[vote_id, party][3])
 
         if pd.isna(group):
             group_defection = NaN
@@ -35,6 +39,7 @@ def create_mep_row(
         else:
             group_defection = epg_matrix.loc[vote_id, group][1][vote - 1]
             group_cohesion = epg_matrix.loc[vote_id, group][2]
+            group_sizes.append(epg_matrix.loc[vote_id, group][3])
 
         if not pd.isna(party_defection):
             party_defection_scores.append(party_defection)
@@ -44,6 +49,10 @@ def create_mep_row(
             party_cohesion_scores.append(party_cohesion)
         if not pd.isna(group_cohesion):
             group_cohesion_scores.append(group_cohesion)
+
+    largest_party_size = NaN if len(party_sizes) == 0 else max(party_sizes)
+
+    largest_group_size = NaN if len(group_sizes) == 0 else max(group_sizes)
 
     average_party_defection = (
         NaN if len(party_defection_scores) == 0 else mean(party_defection_scores)
@@ -68,9 +77,11 @@ def create_mep_row(
             group,
             len(party_defection_scores),
             len(group_defection_scores),
+            largest_party_size,
+            largest_group_size,
             average_party_defection,
-            average_group_defection,
             average_party_cohesion,
+            average_group_defection,
             average_group_cohesion,
         ],
         index=[
@@ -79,6 +90,8 @@ def create_mep_row(
             "ep_group",
             "quantity_votes_party",
             "quantity_votes_group",
+            "largest_party_size",
+            "largest_group_size",
             "party_defection",
             "party_cohesion",
             "group_defection",
@@ -97,6 +110,8 @@ def create_mep_frame(
         "ep_group",
         "quantity_votes_party",
         "quantity_votes_group",
+        "largest_party_size",
+        "largest_group_size",
         "party_defection",
         "party_cohesion",
         "group_defection",

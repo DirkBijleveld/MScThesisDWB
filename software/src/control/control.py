@@ -61,6 +61,8 @@ def control(row: Series, rcv: DataFrame, prev: DataFrame) -> Series:
             "quantity_votes_party": row["quantity_votes_party"],
             "quantity_votes_group": row["quantity_votes_group"],
             "party_size": national_party_size,
+            "largest_party_size": row["largest_party_size"],
+            "largest_group_size": row["largest_group_size"],
             "party_country_ratio": party_country_ratio,
             "party_group_size": party_group_size,
             "party_group_ratio": party_group_ratio,

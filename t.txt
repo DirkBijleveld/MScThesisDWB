@@ -1,0 +1,115 @@
+national_party[T.Ano 2011]                                                                  0.0053      0.000     19.617      0.000       0.005       0.006
+national_party[T.Arbetarepartiet- Socialdemokraterna]                                       0.0062      0.000     24.467      0.000       0.006       0.007
+national_party[T.Bloco de Esquerda]                                                         0.0153      0.000     40.683      0.000       0.015       0.016
+national_party[T.Bulgarian Socialist Party]                                                 0.0064      0.000     23.938      0.000       0.006       0.007
+national_party[T.Bündnis 90/Die Grünen]                                                     0.0106      0.000     55.672      0.000       0.010       0.011
+national_party[T.Centerpartiet]                                                             0.0109      0.000     34.246      0.000       0.010       0.012
+national_party[T.Christen Democratisch Appèl]                                               0.0061      0.000     22.661      0.000       0.006       0.007
+national_party[T.Christen-Democratisch & Vlaams]                                           -0.0056      0.000    -17.664      0.000      -0.006      -0.005
+national_party[T.Christlich Demokratische Union Deutschlands]                               0.0024      0.000     12.454      0.000       0.002       0.003
+national_party[T.Christlich-Soziale Union in Bayern e.V.]                                   0.0003      0.000      1.213      0.226      -0.000       0.001
+national_party[T.Citizens for European Development of Bulgaria]                            -0.0225      0.000    -83.109      0.000      -0.023      -0.022
+national_party[T.Ciudadanos – Partido de la Ciudadanía]                                     0.0088      0.000     34.825      0.000       0.008       0.009
+national_party[T.Coalition of the Radical Left]                                             0.0021      0.000      8.356      0.000       0.002       0.003
+national_party[T.Conservative Party]                                                       -0.1311      0.000   -449.515      0.000      -0.132      -0.131
+national_party[T.DIE LINKE.]                                                               -0.0473      0.000   -175.361      0.000      -0.048      -0.047
+national_party[T.Democraten 66]                                                             0.0105      0.000     28.041      0.000       0.010       0.011
+national_party[T.Democratic Rally]                                                          0.0093      0.000     24.725      0.000       0.009       0.010
+national_party[T.Demokratikus Koalíció]                                                     0.0155      0.000     53.904      0.000       0.015       0.016
+national_party[T.Det Radikale Venstre]                                                     -0.0073      0.000    -19.476      0.000      -0.008      -0.007
+national_party[T.Die Grünen - Die Grüne Alternative]                                        0.0112      0.000     35.003      0.000       0.011       0.012
+national_party[T.Ecologistes Confédérés pour l'Organisation de Luttes Originales]           0.0141      0.000     37.584      0.000       0.013       0.015
+national_party[T.Eesti Reformierakond]                                                      0.0119      0.000     31.655      0.000       0.011       0.013
+national_party[T.Esquerra Republicana de Catalunya]                                         0.0128      0.000     34.074      0.000       0.012       0.014
+national_party[T.Europe Écologie]                                                           0.0038      0.000     17.814      0.000       0.003       0.004
+national_party[T.Fianna Fáil Party]                                                         0.0128      0.000     34.231      0.000       0.012       0.014
+national_party[T.Fidesz-Magyar Polgári Szövetség-Kereszténydemokrata Néppárt]               0.0079      0.000     20.924      0.000       0.007       0.009
+national_party[T.Fine Gael Party]                                                           0.0096      0.000     37.711      0.000       0.009       0.010
+national_party[T.Forza Italia]                                                             -0.1738      0.000   -785.579      0.000      -0.174      -0.173
+national_party[T.Fratelli d'Italia]                                                        -0.0558      0.000   -239.874      0.000      -0.056      -0.055
+national_party[T.Freie Demokratische Partei]                                                0.0131      0.000     49.180      0.000       0.013       0.014
+national_party[T.Freie Wähler]                                                             -0.0206      0.000    -54.878      0.000      -0.021      -0.020
+national_party[T.Freiheitliche Partei Österreichs]                                          0.0164      0.000     51.022      0.000       0.016       0.017
+national_party[T.Green Party]                                                               0.0111      0.000     49.264      0.000       0.011       0.012
+national_party[T.GroenLinks]                                                                0.0105      0.000     32.948      0.000       0.010       0.011
+national_party[T.Hrvatska demokratska zajednica]                                            0.0095      0.000     35.618      0.000       0.009       0.010
+national_party[T.Independents for change]                                                   0.0060      0.000     16.146      0.000       0.005       0.007
+national_party[T.Izquierda Unida]                                                           0.0152      0.000     40.703      0.000       0.014       0.016
+national_party[T.JA21]                                                                      0.0142      0.000     49.282      0.000       0.014       0.015
+national_party[T.Kansallinen Kokoomus]                                                     -0.0341      0.000   -105.758      0.000      -0.035      -0.033
+national_party[T.Kresťanskodemokratické hnutie]                                            -0.0383      0.000   -102.106      0.000      -0.039      -0.038
+national_party[T.Kristdemokraterna]                                                         0.0164      0.000     43.829      0.000       0.016       0.017
+national_party[T.Křesťanská a demokratická unie - Československá strana lidová]            -0.0428      0.000   -113.551      0.000      -0.044      -0.042
+national_party[T.La France Insoumise]                                                      -0.0108      0.000    -40.541      0.000      -0.011      -0.010
+national_party[T.La République en marche]                                                   0.0103      0.000     38.624      0.000       0.010       0.011
+national_party[T.Labour Party]                                                             -0.0022      0.000     -9.765      0.000      -0.003      -0.002
+national_party[T.Lega]                                                                      0.0092      0.000     49.341      0.000       0.009       0.010
+national_party[T.Les Républicains]                                                         -0.0212      0.000    -86.829      0.000      -0.022      -0.021
+national_party[T.Liberal Democrats]                                                        -0.0819      0.000   -410.292      0.000      -0.082      -0.081
+national_party[T.Lietuvos socialdemokratų partija]                                          0.0059      0.000     15.817      0.000       0.005       0.007
+national_party[T.Lista Marjana Šarca]                                                       0.0017      0.000      4.672      0.000       0.001       0.002
+national_party[T.Liste Renaissance]                                                         0.0003      0.000      1.508      0.132      -0.000       0.001
+national_party[T.Miljöpartiet de gröna]                                                     0.0154      0.000     48.213      0.000       0.015       0.016
+national_party[T.Moderaterna]                                                               0.0167      0.000     57.950      0.000       0.016       0.017
+national_party[T.Momentum]                                                                  0.0134      0.000     35.720      0.000       0.013       0.014
+national_party[T.Mouvement Démocrate]                                                       0.0101      0.000     37.652      0.000       0.010       0.011
+national_party[T.Mouvement Réformateur]                                                     0.0117      0.000     31.249      0.000       0.011       0.012
+national_party[T.Movement for Rights and Freedoms]                                          0.0153      0.000     47.804      0.000       0.015       0.016
+national_party[T.Nacionālā apvienība 'Visu Latvijai!'-'Tēvzemei un Brīvībai/LNNK']         -0.0515      0.000   -137.399      0.000      -0.052      -0.051
+national_party[T.Nea Demokratia]                                                            0.0073      0.000     30.177      0.000       0.007       0.008
+national_party[T.Nieuw-Vlaamse Alliantie]                                                   0.0118      0.000     36.971      0.000       0.011       0.012
+national_party[T.Občanská demokratická strana]                                             -0.0042      0.000    -14.631      0.000      -0.005      -0.004
+national_party[T.Open Vlaamse Liberalen en Democraten]                                      0.0098      0.000     26.100      0.000       0.009       0.011
+national_party[T.PIRÁTI]                                                                    0.0142      0.000     44.429      0.000       0.014       0.015
+national_party[T.PODEMOS]                                                                   0.0165      0.000     44.185      0.000       0.016       0.017
+national_party[T.Parti Socialiste]                                                         -0.0252      0.000    -93.519      0.000      -0.026      -0.025
+national_party[T.Parti chrétien social luxembourgeois]                                      0.0135      0.000     36.069      0.000       0.013       0.014
+national_party[T.Partido Comunista Português]                                               0.0134      0.000     41.870      0.000       0.013       0.014
+national_party[T.Partido Popular]                                                           0.0010      0.000      5.028      0.000       0.001       0.001
+national_party[T.Partido Social Democrata]                                                  0.0096      0.000     37.943      0.000       0.009       0.010
+national_party[T.Partido Socialista]                                                        0.0125      0.000     56.551      0.000       0.012       0.013
+national_party[T.Partido Socialista Obrero Español]                                         0.0099      0.000     51.480      0.000       0.010       0.010
+national_party[T.Partidul Mișcarea Populară]                                                0.0040      0.000     10.628      0.000       0.003       0.005
+national_party[T.Partidul Naţional Liberal]                                                 0.0006      0.000      2.634      0.009       0.000       0.001
+national_party[T.Partidul Social Democrat]                                                  0.0016      0.000      6.676      0.000       0.001       0.002
+national_party[T.Partij van de Arbeid]                                                      0.0137      0.000     56.615      0.000       0.013       0.014
+national_party[T.Partija 'VIENOTĪBA']                                                      -0.0008      0.000     -2.129      0.034      -0.002   -6.21e-05
+national_party[T.Partit Laburista]                                                         -0.0051      0.000    -19.196      0.000      -0.006      -0.005
+national_party[T.Partit Nazzjonalista]                                                      0.0164      0.000     43.383      0.000       0.016       0.017
+national_party[T.Partito Democratico]                                                       0.0021      0.000     10.808      0.000       0.002       0.003
+national_party[T.Perussuomalaiset]                                                         -0.0017      0.000     -4.515      0.000      -0.002      -0.001
+national_party[T.Place publique]                                                            0.0018      0.000      4.856      0.000       0.001       0.003
+national_party[T.Platforma Obywatelska]                                                    -0.0068      0.000    -31.392      0.000      -0.007      -0.006
+national_party[T.Polskie Stronnictwo Ludowe]                                                0.0081      0.000     25.187      0.000       0.007       0.009
+national_party[T.Prawo i Sprawiedliwość]                                                    0.0022      0.000     11.919      0.000       0.002       0.003
+national_party[T.Progressive Party of Working People - Left - New Forces]                  -0.0151      0.000    -40.297      0.000      -0.016      -0.014
+national_party[T.Progresívne Slovensko]                                                    -0.0077      0.000    -24.264      0.000      -0.008      -0.007
+national_party[T.Rassemblement national]                                                    0.0133      0.000     68.687      0.000       0.013       0.014
+national_party[T.SMER-Sociálna demokracia]                                                 -0.0136      0.000    -36.197      0.000      -0.014      -0.013
+national_party[T.Scottish National Party]                                                   0.0184      0.000     63.857      0.000       0.018       0.019
+national_party[T.Sinn Féin]                                                                 0.0171      0.001     33.974      0.000       0.016       0.018
+national_party[T.Slovenska demokratska stranka]                                             0.0034      0.000      9.080      0.000       0.003       0.004
+national_party[T.Socialdemokratiet]                                                         0.0138      0.000     43.185      0.000       0.013       0.014
+national_party[T.Socialistisk Folkeparti]                                                   0.0134      0.000     35.789      0.000       0.013       0.014
+national_party[T.Socialni demokrati]                                                       -0.0053      0.000    -16.465      0.000      -0.006      -0.005
+national_party[T.Socijaldemokratska partija Hrvatske]                                       0.0111      0.000     38.505      0.000       0.011       0.012
+national_party[T.Solidarna Polska Zbigniewa Ziobro]                                        -0.0348      0.000    -92.978      0.000      -0.036      -0.034
+national_party[T.Sotsiaaldemokraatlik Erakond]                                              0.0159      0.000     42.490      0.000       0.015       0.017
+national_party[T.Sozialdemokratische Partei Deutschlands]                                  -0.0081      0.000    -41.057      0.000      -0.009      -0.008
+national_party[T.Sozialdemokratische Partei Österreichs]                                    0.0153      0.000     57.311      0.000       0.015       0.016
+national_party[T.Suomen Keskusta]                                                           0.0037      0.000      9.866      0.000       0.003       0.004
+national_party[T.Suomen Sosialidemokraattinen Puolue/Finlands Socialdemokratiska Parti]     0.0047      0.000     12.601      0.000       0.004       0.005
+national_party[T.Sverigedemokraterna]                                                      -0.0056      0.000    -17.676      0.000      -0.006      -0.005
+national_party[T.Svoboda a přímá demokracie]                                               -0.2589      0.000   -691.804      0.000      -0.260      -0.258
+national_party[T.TOP 09 a Starostové]                                                      -0.0263      0.000    -69.810      0.000      -0.027      -0.026
+national_party[T.The Brexit Party]                                                         -0.0187      0.000    -64.857      0.000      -0.019      -0.018
+national_party[T.Tėvynės sąjunga-Lietuvos krikščionys demokratai]                           0.0064      0.000     19.895      0.000       0.006       0.007
+national_party[T.Uniunea Democrată Maghiară din România]                                   -0.0128      0.000    -34.246      0.000      -0.014      -0.012
+national_party[T.Uniunea Salvați România]                                                   0.0068      0.000     29.949      0.000       0.006       0.007
+national_party[T.VMRO]                                                                      0.0113      0.000     30.183      0.000       0.011       0.012
+national_party[T.Venstre, Danmarks Liberale Parti]                                          0.0072      0.000     24.980      0.000       0.007       0.008
+national_party[T.Vihreä liitto]                                                             0.0079      0.000     24.704      0.000       0.007       0.009
+national_party[T.Vlaams Belang]                                                             0.0011      0.000      3.304      0.001       0.000       0.002
+national_party[T.Volkspartij voor Vrijheid en Democratie]                                   0.0141      0.000     55.905      0.000       0.014       0.015
+national_party[T.Vox]                                                                       0.0056      0.000     19.310      0.000       0.005       0.006
+national_party[T.Österreichische Volkspartei]
