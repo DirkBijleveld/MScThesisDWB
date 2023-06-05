@@ -15,7 +15,7 @@ def full(session: str = "9") -> None:
     print("Using all default functionality.")
     intermediary(session=session), intermediary(session=prev)
 
-    clean(session=session), clean(session=prev)
+    clean(session=session, filter_legislative="True"), clean(session=prev)
 
     defection(session=session)
 

@@ -57,7 +57,7 @@ def regression(
 
         print("Saving results...")
         with open(
-            REGRESSION_RESULTS / f"REGRESSION_{datetime.now()}_QUANTILE_PARTY.txt", "w+"
+            REGRESSION_RESULTS / f"REGRESSION_{datetime.now().strftime('%Y%m%d%H%M%S')}_QUANTILE_PARTY.txt", "w+"
         ) as file:
             file.write(fit.summary().as_text())
 
@@ -99,7 +99,7 @@ def regression(
 
         print("Saving results...")
         with open(
-            REGRESSION_RESULTS / f"REGRESSION_{datetime.now()}_QUANTILE_GROUP.txt", "w+"
+            REGRESSION_RESULTS / f"REGRESSION_{datetime.now().strftime('%Y%m%d%H%M%S')}_QUANTILE_GROUP.txt", "w+"
         ) as file:
             file.write(fit.summary().as_text())
         print("\tDone!\n")
@@ -144,7 +144,7 @@ def regression(
         print("Saving results...")
         with open(
             REGRESSION_RESULTS
-            / f"REGRESSION_{datetime.now()}_QUANTILE_EUROSCEPTIC.txt",
+            / f"REGRESSION_{datetime.now().strftime('%Y%m%d%H%M%S')}_QUANTILE_EUROSCEPTIC.txt",
             "w+",
         ) as file:
             file.write(fit.summary().as_text())
