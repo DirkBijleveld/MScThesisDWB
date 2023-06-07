@@ -70,5 +70,7 @@ def control(row: Series, rcv: DataFrame, prev: DataFrame) -> Series:
             "party_cohesion": row["party_cohesion"],
             "group_defection": row["group_defection"],
             "group_cohesion": row["group_cohesion"],
+            "meserve_score_party": row["meserve_score_party"],
+            "meserve_score_group": row["meserve_score_group"],
         }
     )

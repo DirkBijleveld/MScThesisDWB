@@ -70,6 +70,9 @@ def create_mep_row(
         NaN if len(group_cohesion_scores) == 0 else mean(group_cohesion_scores)
     )
 
+    meserve_score_party = mean([1 if score > 0 else 0 for score in party_defection_scores])
+    meserve_score_group = mean([1 if score > 0 else 0 for score in group_defection_scores])
+
     return Series(
         [
             mep_id,
@@ -83,6 +86,8 @@ def create_mep_row(
             average_party_cohesion,
             average_group_defection,
             average_group_cohesion,
+            meserve_score_party,
+            meserve_score_group,
         ],
         index=[
             "mep_id",
@@ -96,6 +101,8 @@ def create_mep_row(
             "party_cohesion",
             "group_defection",
             "group_cohesion",
+            "meserve_score_party",
+            "meserve_score_group",
         ],
     )
 
@@ -116,6 +123,8 @@ def create_mep_frame(
         "party_cohesion",
         "group_defection",
         "group_cohesion",
+        "meserve_score_party",
+        "meserve_score_group",
     ]
     mep_frame = DataFrame(None, index=mep_list, columns=columns)
     print("\t", end="")

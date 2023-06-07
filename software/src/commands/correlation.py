@@ -65,4 +65,53 @@ def correlation(session: str = "9") -> None:
 
     df.to_csv(CORRELATION / f"correlation_matrix_ep{session}.csv", index=False)
 
+
+    # Repeating correlation matrix creation for Meserve data
+    meps = defection[["party_defection", "meserve_score_party"]].corr()
+
+    party = (
+        defection.groupby("national_party")[["party_defection", "meserve_score_party"]]
+        .mean()
+        .corr()
+    )
+    group = (
+        defection.groupby("ep_group")[["party_defection", "meserve_score_party"]]
+        .mean()
+        .corr()
+    )
+    party_corr_mep = meps.at["party_defection", "meserve_score_party"]
+    party_corr_party = party.at["party_defection", "meserve_score_party"]
+    party_corr_group = group.at["party_defection", "meserve_score_party"]
+
+    print(f"Creating correlation matrix for EPG defection...")
+
+    meps = defection[["group_defection", "meserve_score_group"]].corr()
+
+    party = (
+        defection.groupby("national_party")[["group_defection", "meserve_score_group"]]
+        .mean()
+        .corr()
+    )
+
+    group = (
+        defection.groupby("ep_group")[["group_defection", "meserve_score_group"]]
+        .mean()
+        .corr()
+    )
+
+    group_corr_mep = meps.at["group_defection", "meserve_score_group"]
+    group_corr_party = party.at["group_defection", "meserve_score_group"]
+    group_corr_group = group.at["group_defection", "meserve_score_group"]
+
+    print("Saving correlation matrices...")
+
+    df = pd.DataFrame(
+        {
+            "": ["MEP Aggregate", "Party Aggregate", "EPG Aggregate"],
+            "Party Defection": [party_corr_mep, party_corr_party, party_corr_group],
+            "EPG Defection": [group_corr_mep, group_corr_party, group_corr_group],
+        }
+    )
+
+    df.to_csv(CORRELATION / f"correlation_matrix_ep{session}_MESERVE.csv", index=False)
     print("Done!")

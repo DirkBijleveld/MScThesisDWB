@@ -48,6 +48,8 @@ def boxplot(
             colors=["#b50505", "#54d7e8"],
             ymax=0.025,
         )
+        print(frame[frame["ep_group"] == "IDG"]["party_defection"].describe(),
+              frame[~(frame["ep_group"] == "IDG")]["party_defection"].describe())
         plt.savefig(BOXPLOTS / "boxplot_party_defection.png")
         print("Box plot for party defection saved.\n")
 
@@ -71,6 +73,8 @@ def boxplot(
             ymax=0.25,
         )
         plt.savefig(BOXPLOTS / "boxplot_group_defection.png")
+        print(frame[frame["ep_group"] == "IDG"]["group_defection"].describe(),
+              frame[~(frame["ep_group"] == "IDG")]["group_defection"].describe())
         print("Box plot for group defection saved.\n")
 
     if eurosceptic:
@@ -94,6 +98,9 @@ def boxplot(
             order=[1, 0, 2],
         )
         plt.savefig(BOXPLOTS / "boxplot_eurosceptic_defection_epg.png")
+        print(frame[frame["ep_group"] == "IDG"]["group_defection"].describe(),
+              frame[frame["ep_group"] == "ECR"]["group_defection"].describe(),
+              frame[~(frame["ep_group"].isin(["IDG", "ECR"]))]["group_defection"].describe())
         print("Box plot for eurosceptic defection saved.\n")
 
         create_boxplot(
@@ -109,6 +116,9 @@ def boxplot(
             order=[1, 0, 2],
         )
         plt.savefig(BOXPLOTS / "boxplot_eurosceptic_defection_party.png")
+        print(frame[frame["ep_group"] == "IDG"]["party_defection"].describe(),
+              frame[frame["ep_group"] == "ECR"]["party_defection"].describe(),
+              frame[~(frame["ep_group"].isin(["IDG", "ECR"]))]["party_defection"].describe())
         print("Box plot for eurosceptic defection saved.\n")
 
     if cohesion:

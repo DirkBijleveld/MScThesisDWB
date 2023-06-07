@@ -36,9 +36,9 @@ def regression(
 
         # Dropping MEPs with no votes
         frame = frame[frame["quantity_votes_party"] > 0]
+        frame = frame[frame["party_size"] > 2]
 
         # Normalizing values
-        frame["party_country_ratio"] /= frame["party_country_ratio"].max()
         frame["quantity_votes_party"] /= frame["quantity_votes_party"].max()
 
         # Running regression
@@ -120,7 +120,7 @@ def regression(
         frame["eurosceptic"] = frame["eurosceptic"].replace({True: 1, False: 0})
 
         # Dropping MEPs with no votes
-        frame = frame[frame["quantity_votes_party"] > 0]
+        frame = frame[frame["quantity_votes_group"] > 0]
 
         # Normalizing values
         frame["party_country_ratio"] /= frame["party_country_ratio"].max()
@@ -149,3 +149,51 @@ def regression(
         ) as file:
             file.write(fit.summary().as_text())
         print("\tDone!\n")
+
+        print("Running regression on EPG Defection, including Eurosceptic control...")
+
+        # Cleaning frame for eurosceptic defection calculation
+        # A deep copy of defection is used for this.
+
+        frame = defection.copy()
+        frame.dropna(
+            subset=["party_defection", "national_party", "ep_group"], inplace=True
+        )
+        frame["far_right"] = frame["ep_group"].isin(["IDG"])
+        frame["far_right"] = frame["far_right"].replace({True: 1, False: 0})
+        frame["eurosceptic"] = frame["ep_group"].isin(["IDG", "ECR"])
+        frame["eurosceptic"] = frame["eurosceptic"].replace({True: 1, False: 0})
+
+        # Dropping MEPs with no votes
+        frame = frame[frame["quantity_votes_party"] > 0]
+        frame = frame[frame["party_size"] > 2]
+
+        # Normalizing values
+        frame["party_country_ratio"] /= frame["party_country_ratio"].max()
+        frame["quantity_votes_party"] /= frame["quantity_votes_party"].max()
+
+        # Running regression
+        print("---Running Eurosceptic Defection Quantile Regression---")
+        formula = make_formula(
+            "party_defection",
+            "party_country_ratio",
+            "far_right",
+            "eurosceptic",
+            "quantity_votes_party",
+            "incumbent",
+            "C(country)",
+        )
+
+        fit = quantile(formula, frame)
+        print(fit.summary(), end="\n\n")
+
+        print("Saving results...")
+        with open(
+                REGRESSION_RESULTS
+                / f"REGRESSION_{datetime.now().strftime('%Y%m%d%H%M%S')}_QUANTILE_EUROSCEPTIC_PARTIES.txt",
+                "w+",
+        ) as file:
+            file.write(fit.summary().as_text())
+        print("\tDone!\n")
+
+    print("All regressions complete!")

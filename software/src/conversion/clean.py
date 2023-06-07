@@ -26,6 +26,7 @@ def clean_rcv(df: pd.DataFrame) -> pd.DataFrame:
     df = correct_epgs(df)
     print("\tCorrecting national party affiliations...")
     df = correct_national_parties(df)
+    df = df[df["country"] != "United Kingdom"]
     print("\tRemoving unnecessary columns...")
     df = slice_rcv(df)
     print("\tChanging vote values...")
