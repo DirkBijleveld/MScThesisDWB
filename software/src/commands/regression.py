@@ -121,6 +121,7 @@ def regression(
 
         # Dropping MEPs with no votes
         frame = frame[frame["quantity_votes_group"] > 0]
+        frame = frame[frame["party_size"] > 2]
 
         # Normalizing values
         frame["party_country_ratio"] /= frame["party_country_ratio"].max()
